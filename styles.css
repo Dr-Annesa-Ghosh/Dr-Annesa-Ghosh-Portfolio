@@ -465,6 +465,15 @@ p { margin: 0; }
   gap: 8px;
   flex-wrap: wrap;
   margin-bottom: 18px;
+  max-width: calc(100% - 54px);
+}
+
+.case-card:has(.tiny-crab.think) .tiny-context {
+  padding-left: 78px;
+}
+
+.case-card:has(.tiny-crab.point) .tiny-context {
+  max-width: calc(100% - 100px);
 }
 
 .context {
@@ -529,17 +538,17 @@ p { margin: 0; }
 }
 
 .tiny-crab.point {
-  right: 16px;
-  bottom: 12px;
-  width: 130px;
-  transform: rotate(-2deg);
+  right: -14px;
+  top: -12px;
+  width: 118px;
+  transform: rotate(6deg);
 }
 
 .tiny-crab.think {
-  left: -4px;
-  bottom: 8px;
-  width: 112px;
-  transform: rotate(2deg);
+  left: -10px;
+  top: -12px;
+  width: 104px;
+  transform: rotate(-6deg);
 }
 
 .capstone-wrap {

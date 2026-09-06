@@ -1,41 +1,36 @@
 # Dr. Annesa Ghosh — Product Portfolio
 
-Plain HTML/CSS/JS site for GitHub Pages. Same design system, layout, and copy as the original — plus the confirmed content fixes and a new Tools & Skills section. All real images are in place.
+Plain HTML/CSS/JS site for GitHub Pages.
+
+## What's fixed in this version
+
+**Image transparency, properly this time.** The checkerboard leak on the resume-paper prop took a few attempts to actually pin down — turned out my protection box was 5-10px short of the paper's true edge on two sides. Fixed by measuring the actual boundary with a pixel grid and verifying with a direct alpha-channel check, not just a screenshot glance. All other transparent images (crab mascots, avatars) were re-verified clean too.
+
+**Two layout overlaps fixed:**
+- The 3-tag chip row (e.g. "B2B SAAS / TRUST LAYER / RELEASE PLANNING" on CodeTru) no longer collides with the faint background ordinal number — it now wraps a line earlier.
+- The decorative crab mascot on featured case study cards no longer sits on top of the "Read case study" button text or the first tag chip. Moved both crab variants to the top corner (matching the style already used on the Aliko Health panel) instead of the bottom, since the bottom position is where the button lives. This overlap existed on the original live site too, not something introduced here — just never caught before.
+- One minor accepted trade-off: the faint background ordinal number on featured cards is now mostly covered by the crab in that same corner. It's a subtle decorative number, not real content, so this reads fine rather than as a bug.
+
+**"Performance marketing" now named explicitly.** Two spots previously said the more generic "growth marketing" — the Growth section headline and the Resume snapshot paragraph. Both now say "performance marketing," matching your actual Vedantu title and the specific metrics shown in that section (ROI, CAC).
+
+## Resume link now auto-updates — here's how
+
+The "View resume" and "Open resume" buttons no longer point to Google Drive. They now point to `assets/resume.pdf` — a file path inside this repo.
+
+**What this means going forward:** whenever you have a new resume version, export it as a PDF, name it exactly `resume.pdf`, and upload it to the `assets/` folder on GitHub — replacing the old one. The link on the site never changes, so you never touch the HTML again. Just swap the file.
+
+**One thing to do now:** there's no `resume.pdf` in this repo yet. Until you add one, those two buttons will 404. To add it:
+1. On GitHub, navigate into the `assets` folder
+2. "Add file" → "Upload files" → drag in your resume PDF
+3. Before committing, click the filename field and rename it to exactly `resume.pdf` if it isn't already
+4. Commit
+
+To update it later: go to `assets/resume.pdf` in the repo, click the pencil/edit icon (or delete and re-upload with the same name), and commit. The live link stays the same.
 
 ## What's in here
-- `index.html` — all page content
-- `styles.css` — the full design system (colors, fonts, layout, cards)
-- `script.js` — scroll-spy nav + fade-in animations on scroll
-- `assets/` — final images, optimized for web (2.9MB total, down from 17MB+ as originally uploaded)
-- `assets-extra/` — two images you sent that aren't used on the page yet (see below)
+- `index.html`, `styles.css`, `script.js` — the site
+- `assets/` — all images, optimized (2.6MB total)
+- `assets-extra/` — `laptop-avatar.png` and `pointing-avatar.png`, sent but not yet placed anywhere on the page. Say the word if you want either used somewhere.
 
-## What I did to your uploaded images
-Your original files had the transparent areas baked in as a visible checkerboard (flattened PNGs, no real alpha channel) rather than true transparency. I rebuilt proper transparency for each one, resized them to sensible web dimensions, and converted the one fully-opaque image (`hero-avatar`) to JPEG since it didn't need transparency — that alone cut it from 1.7MB to 174KB. Total page weight dropped from ~17MB to under 3MB, which matters for load time once this is live.
-
-One image (`resume-contact-avatar.png`, the blank paper prop) needed a manual fix — the paper and the background were nearly identical shades of white with no clean edge between them, so automatic background removal ate part of the paper. Fixed with a protected region so the paper stays fully solid.
-
-## Two extra images, not yet used
-`assets-extra/laptop-avatar.png` (you with a laptop) and `assets-extra/pointing-avatar.png` (you pointing, human version rather than the crab) aren't wired into any section right now — there wasn't an obvious slot for them in the current layout. Let me know if you want either one worked in somewhere (the Skills section or Prewise/CoWise panel could both suit the laptop image, for instance) and I'll place it properly.
-
-## What changed from the original live site
-- Removed two unverified stats (25% enrolment increase, 20% retention improvement) — kept the four confirmed ones
-- Hero copy broadened from "product management candidate" to "product and growth professional," to fit PM, Product Marketing, and Growth titles equally
-- Growth section headline reframed as a current strength rather than "before product" history
-- Case studies reordered to lead with AI/support-automation work
-- "Recipe Discovery — GTM" capstone promoted to first position (it's the clearest positioning/GTM artifact)
-- Hasta & Co added as a featured entry in "Current build work" (wasn't on the site before)
-- New "Tools & Skills" section added between Capstones and Growth
-- Favicon regenerated from the real CherryClonk artwork
-
-## Pushing to GitHub Pages
-
-```bash
-git init
-git add .
-git commit -m "Initial portfolio site"
-git branch -M main
-git remote add origin https://github.com/<your-username>/<repo-name>.git
-git push -u origin main
-```
-
-Then in the repo's Settings → Pages, set source to the `main` branch, root folder. It'll be live at `https://<your-username>.github.io/<repo-name>/` within a minute or two.
+## Pushing updates
+You're uploading directly through GitHub's web interface, which works fine for a static site like this. For any file that already exists in the repo (like `styles.css` or `index.html`), you can either delete-and-reupload with the same name, or open the file on GitHub and use the pencil/edit icon to paste in the new content directly.
