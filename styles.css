@@ -354,6 +354,13 @@ p { margin: 0; }
 
 .panel p { color: var(--muted); margin-top: 10px; }
 
+.confidentiality-note {
+  margin-top: 22px;
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(22,32,29,0.5);
+}
+
 .timeline {
   display: grid;
   gap: 14px;
