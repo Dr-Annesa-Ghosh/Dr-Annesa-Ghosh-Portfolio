@@ -675,6 +675,32 @@ p { margin: 0; }
   filter: drop-shadow(0 26px 34px rgba(27,25,21,0.13));
 }
 
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(217,141,130,0.14), transparent 16rem),
+    radial-gradient(circle at 90% 90%, rgba(127,155,127,0.16), transparent 18rem),
+    #16201d;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.video-frame video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  background: #16201d;
+}
+
+@media (max-width: 620px) {
+  .video-frame { border-radius: var(--radius-lg); }
+}
+
 .footer {
   padding: 52px 0 30px;
 }
