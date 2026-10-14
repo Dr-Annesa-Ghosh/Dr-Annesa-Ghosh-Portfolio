@@ -915,3 +915,6 @@ p { margin: 0; }
 @media (max-width: 980px) {
   .mk-hero .hero-orb { inset: 6% 12% 2%; }
 }
+
+/* AI build panel in the "Current build work" section */
+.ai-build { margin-top: 22px; }

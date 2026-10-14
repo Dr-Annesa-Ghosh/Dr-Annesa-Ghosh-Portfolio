@@ -115,7 +115,7 @@
             <div class="eyebrow"><span class="spark">✦</span> Current build work</div>
             <h2>Real product work, not just polished decks.</h2>
             <p class="section-copy">
-              Hands-on ownership across a live startup build and two product internships — not just case studies, but shipped work with real users, real analytics, and real trade-offs.
+              A live startup build, a product management internship and a personal AI build, with real analytics, real trade-offs and real bugs to fix.
             </p>
           </div>
         </div>
@@ -227,6 +227,49 @@
             </div>
           </article>
         </div>
+
+        <article class="panel ai-build">
+          <h3>AI job-application workflow (personal build, in progress)</h3>
+          <p>
+            An agentic workflow that reads a resume and a job description, finds the gaps, and drafts tailored application material, with a person checking every step that matters.
+          </p>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="dot">1</div>
+              <div>
+                <strong>Scoped it down before building</strong>
+                <span>Cut a multi-persona job platform down to one resume and one job description. Locked a 10-stage flow with a go/no-go decision after the gap analysis, clarifying questions so nothing gets invented, and a mandatory human review before any output is final.</span>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="dot">2</div>
+              <div>
+                <strong>Built the LLM stages in n8n</strong>
+                <span>Built input, parsing and gap analysis in n8n on Docker: PDF extraction, a no-fabrication prompt, and a structured output parser so every run returns the same fields. Set a primary model with a fallback after hitting provider limits.</span>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="dot">3</div>
+              <div>
+                <strong>Debugged it with evals</strong>
+                <span>The same resume and job description got "weak fit" on one run and "moderate fit" on another. I traced it to an underspecified decision rule, added an explicit tie-breaker to the prompt, and checked the fix across repeated runs and 2 model providers using a locked eval test case.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="chip-row">
+            <span class="chip">Agentic AI</span>
+            <span class="chip">Prompt engineering</span>
+            <span class="chip">LLM evals</span>
+            <span class="chip">Human in the loop</span>
+            <span class="chip">n8n</span>
+          </div>
+
+          <p class="confidentiality-note">
+            Status: stages after the gap analysis are designed and not built yet.
+          </p>
+        </article>
       </div>
     </section>
 
@@ -456,6 +499,9 @@
               <div class="chip-row">
                 <span class="chip">Directing AI-Assisted Development</span>
                 <span class="chip">Claude + Lovable (shipped Hasta & Co)</span>
+                <span class="chip">Agentic workflows in n8n</span>
+                <span class="chip">Prompt design + structured outputs</span>
+                <span class="chip">LLM evals</span>
                 <span class="chip">AI image generation & prompt design</span>
                 <span class="chip">Hailuo AI (image-to-video)</span>
               </div>
