@@ -918,3 +918,35 @@ p { margin: 0; }
 
 /* AI build panel in the "Current build work" section */
 .ai-build { margin-top: 22px; }
+
+/* Copyright line and floating name watermark */
+.copyright {
+  margin-top: 16px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.watermark {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 40;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255,250,241,0.78);
+  backdrop-filter: blur(8px);
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(22,32,29,0.55);
+  pointer-events: none;
+  user-select: none;
+}
+@media (max-width: 620px) {
+  .watermark { left: 10px; bottom: 10px; font-size: 11px; padding: 5px 10px; }
+}
+@media print {
+  .watermark { position: fixed; bottom: 8px; left: 8px; }
+}
+.footer { padding-bottom: 72px; }
